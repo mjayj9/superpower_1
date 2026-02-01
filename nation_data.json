@@ -1,0 +1,52 @@
+
+{
+  "stats": {
+    "territory": "가상의 대륙 중심부",
+    "flag": "https://images.unsplash.com/photo-1517059224940-d4af9eec41b7?auto=format&fit=crop&q=80&w=800",
+    "coatOfArms": "https://images.unsplash.com/photo-1590073242685-c4ef8867550d?auto=format&fit=crop&q=80&w=400",
+    "formalName": "슈퍼파워 연방 공화국",
+    "englishName": "Federal Republic of SuperPower",
+    "capital": "슈퍼파워 시티",
+    "officialName": "슈퍼파워 연방",
+    "language": "슈퍼파워어, 한국어",
+    "currency": "슈퍼 (SPR)",
+    "population": "55,000,000명",
+    "totalGdp": "$2.4조",
+    "hdi": "0.942 (최상급)",
+    "area": "512,000 km²",
+    "motto": "자유와 정의의 영원한 빛",
+    "politicalSystem": "대통령제 공화국",
+    "headOfState": "이슈퍼 대통령",
+    "historyOverview": "고대 부족 국가에서 시작하여 연방제로 통합되었습니다."
+  },
+  "details": {
+    "history": {
+      "ancient": "고대 슈퍼파워 부족들의 연맹체 형성 시기.",
+      "medieval": "중앙집권적 왕국으로의 발전과 문화적 번영.",
+      "modern": "산업 혁명과 공화국 수립을 위한 혁명의 시대.",
+      "contemporary": "글로벌 강국으로 도약하는 현대의 슈퍼파워."
+    },
+    "military": {
+      "overview": "국민 개병제 기반의 현대적 정예 강군",
+      "army": "최신형 전차와 포병 전력을 보유한 육군.",
+      "navy": "대양 해군을 지향하며 항모 강습단을 보유한 해군.",
+      "airforce": "스텔스 전투기와 독자적 위성 체계를 갖춘 공군.",
+      "numerical": {
+        "troopCount": 600000,
+        "tankCount": 2500,
+        "shipCount": 150,
+        "aircraftCount": 450,
+        "readinessLevel": 95
+      }
+    },
+    "economy": {
+      "overview": "첨단 제조업과 지식 기반 서비스업이 조화를 이루는 시장 경제.",
+      "stats": {
+        "gdpGrowthRate": "3.2%",
+        "keyIndustries": ["반도체", "AI 로봇", "바이오", "에너지"]
+      }
+    }
+  },
+  "posts": [],
+  "users": []
+}
