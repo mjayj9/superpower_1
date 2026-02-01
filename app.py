@@ -81,7 +81,7 @@ def hash_password(password):
 
 def load_data():
     if not os.path.exists(DATA_FILE):
-        return None # Initial load handled by JSON file creation
+        return None 
     with open(DATA_FILE, 'r', encoding='utf-8') as f:
         return json.load(f)
 
@@ -139,7 +139,7 @@ with st.sidebar:
                         st.session_state.user = 'admin'
                         st.rerun()
                     else:
-                        st.error("코드 오류")
+                        st.error("코드 오류 (초기: admin123)")
 
     st.markdown("---")
     
@@ -165,7 +165,6 @@ details = data['details']
 
 # --- [1] 국가 개요 ---
 if menu == "국가 개요":
-    # Hero Section
     with st.container():
         st.markdown(f"""
         <div class="card" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white;">
@@ -233,12 +232,14 @@ elif menu == "국방부 포털":
     
     mil = details['military']
     num = mil['numerical']
+    # ERROR FIX: 'overview' key is in stats['militaryOverview'], not mil['overview']
+    overview_text = stats.get('militaryOverview', "국방 백서 요약 정보가 없습니다.")
     
     # Dashboard
     st.markdown(f"""
     <div class="card" style="background-color: #1e293b; color: white;">
         <h3>🛡️ 국방 백서 요약</h3>
-        <p>{mil['overview']}</p>
+        <p>{overview_text}</p>
         <div style="margin-top:1rem; display:flex; gap:1rem;">
             <div style="background:#dc2626; padding:0.5rem 1rem; border-radius:0.5rem; font-weight:bold;">데프콘 4단계</div>
             <div style="background:#4f46e5; padding:0.5rem 1rem; border-radius:0.5rem; font-weight:bold;">준비태세 {num['readinessLevel']}%</div>
@@ -334,8 +335,6 @@ elif menu == "정부 조직":
             for i, item in enumerate(section['items']):
                 cols[i % 3].success(item)
             st.divider()
-            
-    st.info("💡 시민권 신청은 '자유 광장'의 공지사항을 확인하세요.")
 
 # --- [8] 자유 광장 ---
 elif menu == "자유 광장":
@@ -374,7 +373,6 @@ elif menu == "자유 광장":
         if cat_filter == "신문고(청원)" and post['category'] != "petition": continue
         
         with st.container():
-            # 카드 스타일 적용
             st.markdown(f"""
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -391,7 +389,6 @@ elif menu == "자유 광장":
             </div>
             """, unsafe_allow_html=True)
             
-            # 관리자 전용 삭제/신고 버튼
             col_a, col_b = st.columns([1, 5])
             if st.session_state.user == 'admin':
                 if col_a.button("삭제", key=f"del_{post['id']}"):
@@ -409,66 +406,59 @@ elif menu == "👑 대통령 집무실" and st.session_state.user == 'admin':
     st.title("👑 대통령 집무실")
     st.info("여기서 변경하는 모든 내용은 실시간으로 국가 데이터에 반영됩니다.")
     
-    admin_tabs = st.tabs(["기본 정보", "군사력 조절", "경제/사회", "역사 편찬", "시민 관리", "시스템 초기화"])
-    
-    with admin_tabs[0]:
-        with st.form("basic_stats"):
-            st.subheader("국가 기본 정보")
-            c1, c2 = st.columns(2)
-            new_name = c1.text_input("국가명", stats['formalName'])
-            new_pop = c2.text_input("인구", stats['population'])
-            new_gdp = c1.text_input("GDP", stats['totalGdp'])
-            new_sys = c2.text_input("정치 체제", stats['politicalSystem'])
-            new_flag = st.text_input("국기 URL", stats['flag'])
-            
-            if st.form_submit_button("기본 정보 저장"):
+    # Python Streamlit Logic (Replaced Erroneous React Code)
+    admin_tab1, admin_tab2, admin_tab3, admin_tab4, admin_tab5 = st.tabs(["기본 정보", "군사력", "경제/사회", "역사", "시민 관리"])
+
+    with admin_tab1:
+        st.subheader("국가 기본 정보")
+        with st.form("basic_form"):
+            new_name = st.text_input("국가명", stats['formalName'])
+            new_pop = st.text_input("인구", stats['population'])
+            new_gdp = st.text_input("총 GDP", stats['totalGdp'])
+            new_sys = st.text_input("정치 체제", stats['politicalSystem'])
+            if st.form_submit_button("저장"):
                 stats['formalName'] = new_name
                 stats['population'] = new_pop
                 stats['totalGdp'] = new_gdp
                 stats['politicalSystem'] = new_sys
-                stats['flag'] = new_flag
                 save_data(data)
-                st.success("저장되었습니다.")
+                st.success("기본 정보가 수정되었습니다.")
                 st.rerun()
-    
-    with admin_tabs[1]:
-        with st.form("mil_stats"):
-            st.subheader("국방력 수치 조절")
+
+    with admin_tab2:
+        st.subheader("국방력 조절")
+        with st.form("mil_form"):
             mnum = details['military']['numerical']
-            
-            val_troops = st.number_input("현역 병력", value=mnum['troopCount'])
-            val_tanks = st.number_input("전차", value=mnum['tankCount'])
-            val_ships = st.number_input("함정", value=mnum['shipCount'])
-            val_planes = st.number_input("항공기", value=mnum['aircraftCount'])
-            val_nukes = st.number_input("핵탄두", value=mnum.get('nuclearWarheads', 0))
-            val_ready = st.slider("전투 준비태세 (%)", 0, 100, mnum['readinessLevel'])
+            val_troops = st.number_input("현역 병력", value=int(mnum['troopCount']))
+            val_tanks = st.number_input("전차", value=int(mnum['tankCount']))
+            val_ships = st.number_input("함정", value=int(mnum['shipCount']))
+            val_aircraft = st.number_input("항공기", value=int(mnum['aircraftCount']))
+            val_ready = st.slider("준비 태세 (%)", 0, 100, int(mnum['readinessLevel']))
             
             if st.form_submit_button("국방 데이터 갱신"):
                 mnum['troopCount'] = val_troops
                 mnum['tankCount'] = val_tanks
                 mnum['shipCount'] = val_ships
-                mnum['aircraftCount'] = val_planes
-                mnum['nuclearWarheads'] = val_nukes
+                mnum['aircraftCount'] = val_aircraft
                 mnum['readinessLevel'] = val_ready
                 save_data(data)
                 st.success("국방력이 재설정되었습니다.")
                 st.rerun()
 
-    with admin_tabs[2]:
-        with st.form("eco_soc"):
-            st.subheader("경제 및 사회 지표")
+    with admin_tab3:
+        st.subheader("경제 지표 수정")
+        with st.form("eco_form"):
             e_gdp = st.text_input("GDP 성장률", details['economy']['stats']['gdpGrowthRate'])
             e_ind = st.text_input("주요 산업 (콤마 구분)", ", ".join(details['economy']['stats']['keyIndustries']))
-            
             if st.form_submit_button("경제 지표 저장"):
                 details['economy']['stats']['gdpGrowthRate'] = e_gdp
                 details['economy']['stats']['keyIndustries'] = [x.strip() for x in e_ind.split(",")]
                 save_data(data)
                 st.success("저장 완료")
 
-    with admin_tabs[3]:
-        with st.form("hist_edit"):
-            st.subheader("역사 기록 수정")
+    with admin_tab4:
+        st.subheader("역사 기록 수정")
+        with st.form("hist_form"):
             h_ancient = st.text_area("고대사", details['history']['ancient'])
             h_modern = st.text_area("현대사", details['history']['contemporary'])
             if st.form_submit_button("역사 수정"):
@@ -477,43 +467,33 @@ elif menu == "👑 대통령 집무실" and st.session_state.user == 'admin':
                 save_data(data)
                 st.success("역사가 다시 쓰여졌습니다.")
 
-    with admin_tabs[4]:
+    with admin_tab5:
         st.subheader("시민 계정 관리")
         users = data.get('users', [])
-        st.write(f"총 시민 수: {len(users)}명")
         
-        # 시민 리스트
+        # User List
         for u in users:
-            c1, c2, c3 = st.columns([1, 2, 1])
-            c1.write(u['username'])
+            c1, c2, c3 = st.columns([2, 2, 1])
+            c1.write(f"**{u['username']}**")
             c2.caption(f"가입일: {datetime.fromtimestamp(u['createdAt']).strftime('%Y-%m-%d')}")
-            if c3.button("추방", key=f"ban_{u['username']}"):
+            if c3.button("추방", key=f"ban_btn_{u['username']}"):
                 data['users'] = [x for x in users if x['username'] != u['username']]
                 save_data(data)
                 st.rerun()
-        
+
         st.divider()
         st.write("#### 신규 시민 발급")
-        with st.form("new_citizen"):
+        with st.form("new_user_form"):
             nc_id = st.text_input("ID")
             nc_pw = st.text_input("PW")
             if st.form_submit_button("발급"):
                 if any(u['username'] == nc_id for u in users):
                     st.error("이미 존재하는 ID")
-                else:
+                elif nc_id and nc_pw:
                     users.append({"username": nc_id, "password": nc_pw, "createdAt": datetime.now().timestamp()})
                     save_data(data)
                     st.success(f"{nc_id} 시민 발급 완료")
                     st.rerun()
-
-    with admin_tabs[5]:
-        st.error("🚨 위험 구역")
-        if st.button("국가 초기화 (Factory Reset)"):
-            if os.path.exists(DATA_FILE):
-                os.remove(DATA_FILE)
-            st.session_state.data = None
-            st.session_state.user = None
-            st.success("초기화되었습니다. 새로고침하세요.")
 
 # --- [10] 마이 페이지 (시민) ---
 elif menu == "👤 마이 페이지" and st.session_state.user:
@@ -535,7 +515,6 @@ elif menu == "👤 마이 페이지" and st.session_state.user:
         with st.form("pw_change"):
             new_pw = st.text_input("새 비밀번호", type="password")
             if st.form_submit_button("변경"):
-                # Update user list
                 for user in data['users']:
                     if user['username'] == u['username']:
                         user['password'] = new_pw
