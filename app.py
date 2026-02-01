@@ -544,5 +544,3 @@ elif menu == "👤 마이 페이지" and st.session_state.user:
                 st.session_state.user = None
                 st.rerun()
 
-
-
