@@ -7,46 +7,142 @@
     "formalName": "슈퍼파워 연방 공화국",
     "englishName": "Federal Republic of SuperPower",
     "capital": "슈퍼파워 시티",
+    "anthem": "태오르는 자유의 노래",
+    "motto": "자유와 정의의 영원한 빛",
     "officialName": "슈퍼파워 연방",
     "language": "슈퍼파워어, 한국어",
-    "currency": "슈퍼 (SPR)",
-    "population": "55,000,000명",
-    "totalGdp": "$2.4조",
-    "hdi": "0.942 (최상급)",
+    "ethnicity": "슈퍼파워인(80%), 기타(20%)",
     "area": "512,000 km²",
-    "motto": "자유와 정의의 영원한 빛",
+    "population": "55,000,000명",
+    "gdpPerCapita": "$45,000",
+    "totalGdp": "$2.4조",
+    "religion": "종교의 자유 (무교 50%, 기타 50%)",
     "politicalSystem": "대통령제 공화국",
+    "economicSystem": "사회적 시장경제",
     "headOfState": "이슈퍼 대통령",
-    "historyOverview": "고대 부족 국가에서 시작하여 연방제로 통합되었습니다."
+    "headOfGovernment": "김국무 총리",
+    "rulingParty": "미래희망당",
+    "politicalParties": "미래희망당, 민주연합, 자유정의당",
+    "parliament": "국민단층제 의회",
+    "historyOverview": "고대 부족 국가에서 시작하여 연방제로 통합되었습니다.",
+    "intlPhone": "+888",
+    "domain": ".spr",
+    "hdi": "0.942 (최상급)",
+    "timezone": "UTC+10",
+    "currency": "슈퍼 (SPR)",
+    "militaryOverview": "국민 개병제 기반의 현대적 정예 강군"
   },
   "details": {
     "history": {
-      "ancient": "고대 슈퍼파워 부족들의 연맹체 형성 시기.",
-      "medieval": "중앙집권적 왕국으로의 발전과 문화적 번영.",
-      "modern": "산업 혁명과 공화국 수립을 위한 혁명의 시대.",
-      "contemporary": "글로벌 강국으로 도약하는 현대의 슈퍼파워."
+      "ancient": "고대 슈퍼파워 부족들의 연맹체 형성 시기. 초기 문명이 강가에서 발원하였습니다.",
+      "medieval": "중앙집권적 왕국으로의 발전과 문화적 번영. 주변국과의 교역이 활발했습니다.",
+      "modern": "산업 혁명과 공화국 수립을 위한 혁명의 시대. 민주주의의 기틀이 마련되었습니다.",
+      "contemporary": "글로벌 강국으로 도약하는 현대의 슈퍼파워. 첨단 기술과 문화의 중심지가 되었습니다."
     },
     "military": {
-      "overview": "국민 개병제 기반의 현대적 정예 강군",
-      "army": "최신형 전차와 포병 전력을 보유한 육군.",
-      "navy": "대양 해군을 지향하며 항모 강습단을 보유한 해군.",
-      "airforce": "스텔스 전투기와 독자적 위성 체계를 갖춘 공군.",
+      "army": "최신형 전차와 포병 전력을 보유한 육군. 기동화된 보병 사단이 국토를 방위합니다.",
+      "navy": "대양 해군을 지향하며 항모 강습단을 보유한 해군. 해상 교통로를 보호합니다.",
+      "airforce": "스텔스 전투기와 독자적 위성 체계를 갖춘 공군. 제공권을 완벽히 장악합니다.",
+      "marines": "신속 대응 및 상륙 작전의 선봉 해병대. 전략 도서 지역을 방어합니다.",
+      "strategic": "핵 억제력 및 탄도 미사일 전담 전략군. 국가의 최후 보루입니다.",
+      "space": "위성 방어 및 궤도 감시를 위한 우주군. 우주 자산을 보호합니다.",
+      "cyber": "국가 인프라 보호 및 사이버 심리전 수행. 디지털 영토를 수호합니다.",
+      "whitePaper": "2024 국방 백서: 평화와 억제력을 위한 도약",
       "numerical": {
         "troopCount": 600000,
         "tankCount": 2500,
         "shipCount": 150,
         "aircraftCount": 450,
+        "nuclearWarheads": 0,
+        "defenseBudget": "450억 달러",
         "readinessLevel": 95
       }
     },
     "economy": {
-      "overview": "첨단 제조업과 지식 기반 서비스업이 조화를 이루는 시장 경제.",
+      "overview": "첨단 제조업과 지식 기반 서비스업이 조화를 이루는 고도로 발달된 시장 경제 체제입니다.",
       "stats": {
         "gdpGrowthRate": "3.2%",
-        "keyIndustries": ["반도체", "AI 로봇", "바이오", "에너지"]
+        "inflationRate": "1.8%",
+        "unemploymentRate": "2.5%",
+        "tradeBalance": "+1,200억 달러 (흑자)",
+        "keyIndustries": ["반도체", "AI 로봇", "바이오 의약", "친환경 에너지", "콘텐츠"],
+        "currencyStrength": "매우 높음 (기축 통화국)",
+        "energyMix": "재생에너지 45%, 원자력 30%, LNG 25%"
+      },
+      "manufacturing": "세계 최고 수준의 반도체 및 디스플레이 생산 능력을 보유하고 있으며, 전기차 및 배터리 산업을 선도합니다.",
+      "services": "금융, 법률, 의료 서비스가 고도로 발달되어 있으며, 아시아의 금융 허브 역할을 수행합니다.",
+      "technology": "국가 R&D 투자가 GDP 대비 5%에 달하며, 양자 컴퓨팅 및 우주 항공 분야에서 독보적인 기술력을 자랑합니다.",
+      "trade": "자유 무역을 지향하며 전 세계 50개국 이상과 FTA를 체결하여 경제 영토를 확장하고 있습니다."
+    },
+    "culture": {
+      "overview": "동서양의 문화가 융합되어 독창적이고 매력적인 '슈퍼파워 스타일'을 형성하였습니다.",
+      "stats": {
+        "annualTourists": "2,500만 명",
+        "unescoSites": 15,
+        "nationalDish": "슈퍼 불고기 & 비빔 누들",
+        "majorFestivals": "빛의 축제, 국제 영화제, 벚꽃 대전",
+        "internetPenetration": "99.9%",
+        "globalSoftPowerRank": 3
+      },
+      "traditions": "전통 의복인 '한복'을 현대적으로 재해석하여 입으며, 웃어른을 공경하는 예절 문화가 남아있습니다.",
+      "cuisine": "발효 음식과 건강식을 중심으로 한 식문화가 발달했으며, 길거리 음식이 세계적으로 유명합니다.",
+      "arts": "전통 국악과 현대 팝 음악이 융합된 K-Culture가 전 세계적인 인기를 끌고 있습니다.",
+      "media": "드라마, 영화, 웹툰 등 콘텐츠 산업이 국가의 주요 수출 품목 중 하나입니다."
+    },
+    "nature": {
+      "overview": "사계절이 뚜렷하고 산과 바다, 평야가 어우러진 천혜의 자연 환경을 자랑합니다.",
+      "stats": {
+        "averageTemp": "14.5°C",
+        "forestCover": "65%",
+        "coastline": "12,000 km",
+        "highestPoint": "백두산 (2,744m)",
+        "majorRivers": "한강, 낙동강, 금강",
+        "biodiversityIndex": "높음",
+        "climateZones": ["온대 몬순", "냉대 동계 건조"]
+      },
+      "geography": "동쪽은 높은 산맥이 척추를 이루고, 서쪽과 남쪽은 비옥한 평야와 리아스식 해안이 발달해 있습니다.",
+      "climate": "여름은 고온 다습하고 겨울은 한랭 건조하며, 봄과 가을은 맑고 건조하여 활동하기 좋습니다.",
+      "resources": "희토류 및 천연가스 매장량이 풍부하며, 수력 및 풍력 발전 잠재력이 높습니다.",
+      "tourism_spots": "국립공원, 해상 국립공원, 유네스코 세계자연유산 등 다양한 생태 관광지를 보유하고 있습니다."
+    },
+    "government": [
+      {
+        "title": "입법부 (Legislature)",
+        "description": "국민의 뜻을 대변하고 법률을 제정하는 국가 기관",
+        "items": ["국회 (National Assembly)", "정당 사무처", "입법조사처"]
+      },
+      {
+        "title": "사법부 (Judiciary)",
+        "description": "3심 재판 제도를 통해 정의와 법을 수호",
+        "items": ["대법원", "고등법원", "지방법원"]
+      },
+      {
+        "title": "행정부 (Executive)",
+        "description": "국정을 운영하고 정책을 집행하는 실무 조직",
+        "items": ["국토교통부", "산업경제부", "국민재난부", "교육문화부", "보건복지부"]
+      },
+      {
+        "title": "외교 및 보안 (Diplomacy & Security)",
+        "description": "대외 관계 및 국가 안보 전담",
+        "items": ["외교부", "각국 주재 대사관", "국가안보실", "정보사령부"]
+      },
+      {
+        "title": "공공 서비스 (Public Services)",
+        "description": "국민의 삶의 질을 보장하는 인프라",
+        "items": ["국립대학교", "슈퍼파워 방송공사(SBC)", "수도권 광역 철도", "국립 중앙 도서관"]
       }
-    }
+    ]
   },
-  "posts": [],
+  "posts": [
+    { 
+      "id": "1", 
+      "author": "대통령실", 
+      "title": "국가 포털 개설을 환영합니다", 
+      "content": "슈퍼파워 연방의 새로운 시작입니다. 시민 여러분의 자유로운 소통을 환영합니다.", 
+      "timestamp": 1709251200000,
+      "category": "general",
+      "reports": []
+    }
+  ],
   "users": []
 }
